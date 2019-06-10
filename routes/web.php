@@ -18,5 +18,5 @@ Route::get('/student', 'StudentController@student');
 Route::post('/insert', 'StudentController@insert');
 Route::get('/fees', 'FeesController@fees');
 Route::post('/store', 'FeesController@store');
-Route::get('/onestudent', 'StudentController@onestudent');
+Route::post('/onestudent', 'StudentController@onestudent');
 Route::get('/allfees', 'FeesController@allfees');

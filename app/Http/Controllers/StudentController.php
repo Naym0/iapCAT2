@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Unique;
+use App\Fees;
 
 class StudentController extends Controller
 {
@@ -12,8 +13,12 @@ class StudentController extends Controller
         return view('Muswanya.student');
     }
 
-    public function onestudent(){
-        return view('Muswanya.onestudent');
+    public function onestudent(Request $request){
+        $validation = $request->validate([
+            'id' => 'required | exists:students,student_id'
+        ]);
+        $payments = Fees::where('student_id', $request->post('id'))->get();
+        return view('Muswanya.onestudent')->with('payments', $payments);
     }
 
     public function insert(Request $request){

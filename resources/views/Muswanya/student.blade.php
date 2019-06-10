@@ -26,6 +26,21 @@
         cursor: pointer;
         transition: 0.3s;
         }
+        button{
+        border-radius: 2px;
+        background-color: white;
+        font-size: 18px;
+        height:30px;
+        }
+        button:hover {
+        background-color: #eaf2ff;
+        }
+        a{
+        color: black;
+        }
+        a:visited, :active{
+        text-decoration: none !important;
+        }
     </style>
 
     <body>
@@ -65,7 +80,15 @@
             <button type="submit" name="submit">Submit</button>
         </form></center><br><hr><br>
 
-        <center><button><a href='/onestudent'>Search one students fees</a></button></center>
+        <center><h1>See all fee payments made by a specific student</h1>
+            <form action="/onestudent" method="post">
+                @csrf
+                Student ID:
+                <input type="text" name="id"><br><br>
+                <button type="submit" name="retrieve">Retrieve</button>
+            </form><br><hr><br>
+
+        <center><button><a href='/'>Back</a></button></center>
     </body>
 
     <script>

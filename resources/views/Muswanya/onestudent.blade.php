@@ -30,6 +30,22 @@
         cursor: pointer;
         transition: 0.3s;
         }
+        button{
+        border-radius: 2px;
+        width: 100px;
+        background-color: white;
+        font-size: 18px;
+        height:30px;
+        }
+        button:hover {
+        background-color: #eaf2ff;
+        }
+        a{
+        color: black;
+        }
+        a:visited, :active{
+        text-decoration: none !important;
+        }
     </style>
     <body>
 
@@ -50,30 +66,32 @@
             </div>
         @endif
 
-        <center><h1>See all fee payments made by a specific student</h1>
-        <form action="/" method="post">
-            @csrf
-            Student ID:
-            <input type="text" name="id"><br><br>
-            <button type="submit" name="retrieve">Retrieve</button>
-        </form><br><hr><br>
-
-        <h3>Total amount paid by this student:</h3>  <h2> </h2><br>
-
-        <table border="1px" width="50%" align="center">
-            <tr>
-                <td>STUDENT ID</td>
-                <td>FEES</td>
-            </tr>
-        {{-- @foreach($student as $student) --}}
-            <tr>
-                {{-- <td>{{$student->id}}</td>
-                <td>{{$student->fees}}</td> --}}
-            </tr>
-        {{-- @endforeach --}}
-        </table>
-
+        <center><h3>Total amount paid by this student:</h3>  <h2> </h2><br></center>
+        @if (count($payments) > 0)
+            <table border="1px" width="50%" align="center">
+                <thead>
+                    <td>#</td>
+                    <td>Payment date</td>
+                    <td>Amount</td>
+                </thead>
+                <tbody>
+                    @php
+                        $count = 0;
+                    @endphp
+                    @foreach ($payments as $payment)
+                        <tr>
+                            <td>{{ ++$count }}</td>
+                            <td>{{ $payment->created_at }}</td>
+                            <td>{{ $payment->amount }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <h4>No payment records</h4>
+        @endif
     </center>
+    <br><br><center><button><a href='/student'>Back</a></button></center>
     </body>
 
     <script>

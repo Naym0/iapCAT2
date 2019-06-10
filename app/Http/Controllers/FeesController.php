@@ -13,7 +13,7 @@ class FeesController extends Controller
 
     public function allfees(){
         $fees = Fees::all();
-        return view('Muswanya.fees', ['fees' => $fees]);
+        return view('Muswanya.allfees', ['fees' => $fees]);
     }
 
     public function store(Request $request){

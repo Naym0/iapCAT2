@@ -37,14 +37,13 @@
         height:30px;
         }
         button:hover {
-            background-color: #eaf2ff;
-            color: white;
+        background-color: #eaf2ff;
         }
         a{
-            color: black;
+        color: black;
         }
-        a:visited, :active{
-            text-decoration: none !important;
+        a:visited, a:active{
+        text-decoration: none !important;
         }
     </style>
     <body>
@@ -66,18 +65,24 @@
             </div>
         @endif
 
-        <center><h1>Input new fees data for a Student</h1>
-            <form action="/store" method='post'>
-                @csrf
-                Student ID:
-                <input type="text" name="id"><br><br>
-                Amount Paid:
-                <input type="text" name="amount"><br><br>
-                <button type="submit" name="submit">Submit</button>
-            </form><br><hr><br>
+        <center>
+            <h3>Total amount paid by all students:</h3>  <h2><?php echo $data?> </h2><br>
 
-            <button><a href='/allfees'>See total amount of Fees paid by all students</a></button><br><br>
-            <button><a href='/'>Back</a></button>
+            <table border="1px" width="50%" align="center">
+                <tr>
+                    <td>STUDENT ID</td>
+                    <td>AMOUNT</td>
+                </tr>
+            @foreach($fees as $fee)
+                <tr>
+                    <td>{{$fee->student_id}}</td>
+                    <td>{{$fee->amount}}</td>
+                </tr>
+            @endforeach
+            </table><br><hr><br>
+
+            <button><a href='/fees'>Back</a></button>
+
         </center>
     </body>
 
