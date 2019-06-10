@@ -66,7 +66,7 @@
             </div>
         @endif
 
-        <center><h1>Input new fees data for a Student</h1>
+        <center><h1><u>Input new fees data for a Student</u></h1>
             <form action="/store" method='post'>
                 @csrf
                 Student ID:

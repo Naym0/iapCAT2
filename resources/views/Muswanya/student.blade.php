@@ -62,8 +62,8 @@
             </div>
         @endif
 
-        <center><h1>Register a new student</h1>
-        <form action="/insert" method="post">
+        <center><h1><u>Register a new student</u></h1>
+        <form action="/insert" method="post" width='50%'>
             @csrf
             First Name:
             <input type="text" name="fname"><br><br>
@@ -78,9 +78,9 @@
             Course:
             <input type="text" name="course"><br><br>
             <button type="submit" name="submit">Submit</button>
-        </form></center><br><hr><br>
+        </form></center><br><hr>
 
-        <center><h1>See all fee payments made by a specific student</h1>
+        <center><h1><u>See all fee payments made by a specific student</u></h1>
             <form action="/onestudent" method="post">
                 @csrf
                 Student ID:

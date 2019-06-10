@@ -46,6 +46,20 @@
         a:visited, :active{
         text-decoration: none !important;
         }
+        .table {
+        border-collapse: collapse;
+        }
+        thead {
+        background-color: black;
+        color: white;
+        }
+        tbody{
+            background-color: white;
+            color: black;
+        }
+        td{
+            height: 35px;
+        }
     </style>
     <body>
 
@@ -66,9 +80,9 @@
             </div>
         @endif
 
-        <center><h3>Total amount paid by this student:</h3>  <h2> </h2><br></center>
+        <center><h3>All payments made by student</h3><br></center>
         @if (count($payments) > 0)
-            <table border="1px" width="50%" align="center">
+            <table border="1px" width="50%" align="center" class="table">
                 <thead>
                     <td>#</td>
                     <td>Payment date</td>

@@ -45,6 +45,20 @@
         a:visited, a:active{
         text-decoration: none !important;
         }
+        .table {
+        border-collapse: collapse;
+        }
+        thead {
+        background-color: black;
+        color: white;
+        }
+        tbody{
+            background-color: white;
+            color: black;
+        }
+        td{
+            height: 35px;
+        }
     </style>
     <body>
 
@@ -66,13 +80,13 @@
         @endif
 
         <center>
-            <h3>Total amount paid by all students:</h3>  <h2><?php echo $data?> </h2><br>
+            <h2><u>Total:</u></h2>  <h1>Ksh. <?php echo $data?> </h1><br>
 
-            <table border="1px" width="50%" align="center">
-                <tr>
+            <table border="1px" width="50%" align="center" class="table">
+                <thead>
                     <td>STUDENT ID</td>
                     <td>AMOUNT</td>
-                </tr>
+                </thead>
             @foreach($fees as $fee)
                 <tr>
                     <td>{{$fee->student_id}}</td>
