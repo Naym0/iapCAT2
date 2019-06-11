@@ -4,10 +4,6 @@
         <title>101112</title>
     </head>
 
-    <?php
-        $data = DB::table("fees")->sum('amount');
-    ?>
-
     <style>
         body{
             background-color: pink;
